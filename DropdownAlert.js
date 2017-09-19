@@ -45,7 +45,8 @@ export default class DropdownAlert extends Component {
     inactiveStatusBarStyle: PropTypes.string,
     inactiveStatusBarBackgroundColor: PropTypes.string,
     updateStatusBar: PropTypes.bool,
-    elevation: PropTypes.number
+    elevation: PropTypes.number,
+    disableTitle : PropTypes.bool
   }
   static defaultProps =  {
     onClose: null,
@@ -102,6 +103,7 @@ export default class DropdownAlert extends Component {
     inactiveStatusBarBackgroundColor: StatusBarDefaultBackgroundColor,
     updateStatusBar: true,
     elevation: 1,
+    disableTitle : false
   }
   constructor(props) {
     super(props)
@@ -429,7 +431,7 @@ export default class DropdownAlert extends Component {
               <View style={style}>
                 {this.renderImage(source, StyleSheet.flatten(this.props.imageStyle))}
                 <View style={styles.textContainer}>
-                  {this.renderText(this.state.title, StyleSheet.flatten(this.props.titleStyle), this.props.titleNumOfLines)}
+                  {!this.props.disableTitle && this.renderText(this.state.title, StyleSheet.flatten(this.props.titleStyle), this.props.titleNumOfLines)}
                   {this.renderText(this.state.message, StyleSheet.flatten(this.props.messageStyle), this.props.messageNumOfLines)}
                 </View>
                 {this.renderButton(this.props.cancelBtnImageSrc, StyleSheet.flatten(this.props.cancelBtnImageStyle), this.onCancel, backgroundColor, this.props.showCancel)}
@@ -451,10 +453,12 @@ var styles = StyleSheet.create({
   defaultContainer: {
     padding: 8,
     paddingTop: (Platform.OS === 'android') ? 0 : 20,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    alignItems : 'center',
+    justifyContent : 'center'
   },
   textContainer: {
-    flex: 1,
+//     flex: 1,
     padding: 8
   }
 })
