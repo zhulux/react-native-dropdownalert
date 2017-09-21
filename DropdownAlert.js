@@ -452,6 +452,7 @@ export default class DropdownAlert extends Component {
 var styles = StyleSheet.create({
   defaultContainer: {
     padding: 8,
+    marginHorizontal : 15,
     paddingTop: (Platform.OS === 'android') ? 0 : 20,
     flexDirection: 'row',
     alignItems : 'center',
