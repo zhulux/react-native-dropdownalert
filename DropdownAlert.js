@@ -369,7 +369,7 @@ export default class DropdownAlert extends Component {
   }
   renderDropDown(isOpen) {
     if (isOpen == true) {
-      var style = [styles.defaultContainer, StyleSheet.flatten(this.props.containerStyle)]
+      var style = [styles.defaultContainer]
       var source = this.props.imageSrc
       var backgroundColor = this.props.containerStyle.backgroundColor
       switch (this.state.type) {
@@ -406,6 +406,7 @@ export default class DropdownAlert extends Component {
       if (this.props.updateStatusBar) {
         this.renderStatusBar(activeStatusBarBackgroundColor, this.props.activeStatusBarStyle, this.props.translucent)
       }
+      style = [style, StyleSheet.flatten(this.props.containerStyle)]
       return (
           <Animated.View
            ref={(ref) => this.mainView = ref}
