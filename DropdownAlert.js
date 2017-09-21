@@ -460,6 +460,7 @@ var styles = StyleSheet.create({
   },
   textContainer: {
 //     flex: 1,
-    padding: 8
+//    padding: 8,
+    marginLeft : 8
   }
 })
